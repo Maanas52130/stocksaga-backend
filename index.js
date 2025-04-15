@@ -16,20 +16,20 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://stocksaga-frontend.vercel.app", // your Vercel frontend URL
+    origin: "https://stocksaga-frontend.vercel.app", // ✅ Your deployed frontend URL
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-const pendingVerifications = {}; // Required for OTP flow
+const pendingVerifications = {}; // OTP memory store
 
 // MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.log("MongoDB connection failed:", err));
+  .catch((err) => console.log("❌ MongoDB connection failed:", err));
 
 // Email Transporter
 const transporter = nodemailer.createTransport({
@@ -158,12 +158,13 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// Mount Routes
+// Routes
 app.use("/api/stocks", stockRoutes);
 app.use("/api", transactionRoutes);
-app.use("/api/user", userRoutes); // ✅ Mount user routes at /api/user
+app.use("/api/user", userRoutes); // ✅ User routes mounted here
 
-// Start Server
-app.listen(5000, () => {
-  console.log("🚀 Server running on port 5000");
+// Start Server with dynamic port for Render
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
