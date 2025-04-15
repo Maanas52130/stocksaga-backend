@@ -14,7 +14,13 @@ const userRoutes = require("./routes/userRoutes"); // ✅ Add userRoutes
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://stocksaga-frontend.vercel.app", // your Vercel frontend URL
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 const pendingVerifications = {}; // Required for OTP flow
