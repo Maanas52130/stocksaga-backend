@@ -16,7 +16,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://stocksaga-frontend.vercel.app", // ✅ Your deployed frontend URL
+    origin: "https://stocksaga-frontend.onrender.com", // ✅ Your deployed frontend URL
     credentials: true,
   })
 );
