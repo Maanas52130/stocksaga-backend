@@ -29,11 +29,15 @@
 
 This backend delivers:
 
-✔ ⚡ Fast and secure REST APIs
-✔ 🧱 Clean modular architecture
-✔ 🔐 Authentication & authorization
-✔ 🧮 Portfolio computation logic
-✔ 🗃️ Scalable database structure
+⚡ Fast and secure REST APIs
+
+🧱 Clean modular architecture
+
+🔐 Authentication & authorization
+
+🧮 Portfolio computation logic
+
+🗃️ Scalable database structure
 
 Built for deployment on **Render**, **Vercel**, **AWS**, **Docker**, and more.
 
