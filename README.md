@@ -81,7 +81,6 @@ graph LR
     A[💻 Client Apps] --> B(API Gateway - Express⚡)
     B --> C{🔐 Auth Layer}
     C --> C1[JWT Verification]
-    C --> C2[Role-based Access]
 
     B --> D[👤 User Service]
     B --> E[📈 Portfolio Service]
